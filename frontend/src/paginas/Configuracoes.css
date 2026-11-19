@@ -1,0 +1,198 @@
+.config {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(640px, 100%);
+  margin: 0 auto;
+}
+
+.config-secao {
+  padding: 26px 26px 28px;
+}
+
+.config-imagens {
+  position: relative;
+  margin-top: 20px;
+  padding-bottom: 46px;
+}
+
+.config-perfil .config-imagens {
+  margin-top: 0;
+}
+
+.config-banner {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+  border-radius: 18px;
+  background-color: var(--fundo-suave);
+}
+
+.config-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.config-trocar-banner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 14px;
+}
+
+.config-avatar {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+}
+
+.config-avatar .avatar-gg {
+  width: 96px;
+  height: 96px;
+  border-width: 4px;
+}
+
+.config-trocar-foto {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: white;
+  background-color: var(--texto-principal);
+  border: 3px solid var(--fundo-cartao);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.config-trocar-foto:hover {
+  background-color: #34373d;
+}
+
+.config-campo {
+  margin-top: 22px;
+}
+
+.config-erro-campo {
+  margin: 8px 0 0;
+  color: var(--texto-vermelho);
+  font-size: 14px;
+}
+
+.config-usuario {
+  padding-right: 170px;
+}
+
+.config-estado {
+  position: absolute;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.config-estado.ok {
+  color: var(--texto-verde);
+}
+
+.config-estado.erro {
+  color: var(--texto-vermelho);
+}
+
+.config-invalido .campo {
+  border-color: var(--texto-vermelho);
+}
+
+.config-invalido .campo:focus {
+  box-shadow: 0 0 0 3px rgba(214, 24, 58, 0.12);
+}
+
+.config-secao .recado {
+  margin-top: 16px;
+}
+
+.config-sessao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.config-sair {
+  padding: 12px 22px;
+  font-size: 15px;
+  border: 1px solid var(--linha);
+  box-shadow: none;
+}
+
+.config-salvar {
+  position: sticky;
+  bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.config-salvar .botao {
+  padding: 15px 26px;
+  border-radius: 999px;
+  box-shadow: var(--sombra-forte);
+  pointer-events: auto;
+}
+
+@media (max-width: 480px) {
+  .config-secao {
+    padding: 20px 18px 22px;
+  }
+
+  .config-banner {
+    height: 110px;
+  }
+
+  .config-avatar .avatar-gg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .config-usuario {
+    padding-right: 48px;
+  }
+
+  .config-estado {
+    font-size: 0;
+  }
+
+  .config-salvar .botao {
+    width: 100%;
+  }
+}
+
+.config-apagar-texto {
+  margin: 0 0 14px;
+  color: var(--texto-apoio);
+}
+
+.config-apagar-linha {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.config-apagar-linha .config-campo {
+  flex: 1 1 240px;
+  margin: 0;
+}
+
+.config-apagar .aviso {
+  margin: 14px 0 0;
+}

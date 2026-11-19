@@ -1,0 +1,145 @@
+# A sessão vai num cookie HttpOnly (lenss_sessao), guardado sozinho pelo REST Client depois do login.
+# Todo pedido que muda dados precisa do cabeçalho X-LENSS: 1.
+
+
+# @name login
+POST http://localhost:3000/login
+X-LENSS: 1
+Content-Type: application/json
+
+{
+  "usuario": "ana",
+  "senha": "123456"
+}
+
+###
+POST http://localhost:3000/login
+X-LENSS: 1
+Content-Type: application/json
+
+{
+  "usuario": "ana",
+  "senha": "senha-errada"
+}
+
+###
+GET http://localhost:3000/perfil
+X-LENSS: 1
+
+###
+GET http://localhost:3000/perfil
+
+###
+GET http://localhost:3000/feed
+X-LENSS: 1
+
+###
+POST http://localhost:3000/posts
+X-LENSS: 1
+Content-Type: multipart/form-data; boundary=fronteira
+
+--fronteira
+Content-Disposition: form-data; name="legenda"
+
+Foto enviada pelo arquivo de testes
+--fronteira
+Content-Disposition: form-data; name="imagem"; filename="foto-01.svg"
+Content-Type: image/svg+xml
+
+< ./uploads/foto-01.svg
+--fronteira--
+
+###
+PATCH http://localhost:3000/perfil
+X-LENSS: 1
+Content-Type: multipart/form-data; boundary=fronteira
+
+--fronteira
+Content-Disposition: form-data; name="nome"
+
+Ana Souza
+--fronteira
+Content-Disposition: form-data; name="bio"
+
+Montanhas, trilhas e pôr do sol.
+--fronteira--
+
+###
+PATCH http://localhost:3000/perfil
+X-LENSS: 1
+Content-Type: multipart/form-data; boundary=fronteira
+
+--fronteira
+Content-Disposition: form-data; name="nome"
+
+Ana Souza
+--fronteira
+Content-Disposition: form-data; name="bio"
+
+Montanhas, trilhas e pôr do sol.
+--fronteira
+Content-Disposition: form-data; name="banner"; filename="foto-04.svg"
+Content-Type: image/svg+xml
+
+< ./uploads/foto-04.svg
+--fronteira--
+
+###
+PATCH http://localhost:3000/perfil
+X-LENSS: 1
+Content-Type: multipart/form-data; boundary=fronteira
+
+--fronteira
+Content-Disposition: form-data; name="nome"
+
+Ana Souza
+--fronteira
+Content-Disposition: form-data; name="usuario"
+
+ana.souza
+--fronteira--
+
+###
+DELETE http://localhost:3000/posts/3
+X-LENSS: 1
+
+###
+POST http://localhost:3000/cadastro
+X-LENSS: 1
+Content-Type: application/json
+
+{
+  "nome": "Conta de Teste",
+  "usuario": "conta.teste",
+  "senha": "uma-senha-so-daqui"
+}
+
+### Limite: com 3 fotos no perfil, mais um POST /posts responde 403
+### "Cada perfil pode ter até 3 fotos. Apague uma para postar outra."
+
+###
+# O perfil de outra pessoa (página /perfil/:usuario e carrossel do feed)
+GET http://localhost:3000/usuarios/bruno/posts
+X-LENSS: 1
+
+###
+# Apagar a própria conta (pede a senha de novo; 403 se estiver errada). Não dá para desfazer!
+DELETE http://localhost:3000/perfil
+X-LENSS: 1
+Content-Type: multipart/form-data; boundary=fronteira
+
+--fronteira
+Content-Disposition: form-data; name="senha"
+
+uma-senha-so-daqui
+--fronteira--
+
+###
+# Seguir alguém (DELETE no mesmo endereço deixa de seguir)
+POST http://localhost:3000/usuarios/bruno/seguir
+X-LENSS: 1
+
+###
+# Sair: apaga a sessão no servidor (o cookie lenss_sessao deixa de valer)
+POST http://localhost:3000/sair
+X-LENSS: 1

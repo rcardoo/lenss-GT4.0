@@ -1,0 +1,71 @@
+.opcoes {
+  position: relative;
+}
+
+.opcoes-botao {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--texto-apoio);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.opcoes-botao:hover,
+.opcoes-aberto .opcoes-botao {
+  color: var(--texto-principal);
+  background-color: var(--fundo-suave);
+}
+
+.opcoes-lista {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 200px;
+  padding: 6px;
+  background-color: var(--fundo-cartao);
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  border-radius: 14px;
+  box-shadow: var(--sombra-forte);
+  animation: opcoes-entra 0.15s ease-out;
+}
+
+@keyframes opcoes-entra {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.opcoes-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  color: var(--texto-principal);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.opcoes-item:hover {
+  background-color: var(--fundo-suave);
+}
+
+.opcoes-perigo {
+  color: var(--texto-vermelho);
+}
+
+.opcoes-perigo:hover {
+  background-color: #fdecee;
+}

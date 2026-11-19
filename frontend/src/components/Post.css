@@ -1,0 +1,264 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 18px 22px;
+}
+
+.post-autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 4px;
+}
+
+.post-autor-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-autor-link:hover strong {
+  text-decoration: underline;
+}
+
+.post-nomes {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.post-nomes strong {
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.post-nomes span {
+  color: var(--texto-apoio);
+  font-size: 14px;
+}
+
+.post-opcoes {
+  margin-left: auto;
+}
+
+.post-moldura {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--raio-foto);
+  background-color: var(--fundo-suave);
+}
+
+.post-foto {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.post-foto-preencher .post-foto {
+  object-fit: cover;
+}
+
+.post-foto-inteira .post-foto {
+  object-fit: contain;
+}
+
+.post-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.post-acao {
+  width: 44px;
+  height: 44px;
+}
+
+.post-curtido {
+  color: var(--texto-vermelho);
+}
+
+.post-salvo {
+  color: var(--texto-principal);
+}
+
+.post-curtidas {
+  margin-left: 4px;
+  color: var(--texto-apoio);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.post-legenda {
+  margin: 0;
+  padding: 0 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.post-legenda strong {
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 14px 14px 18px;
+    gap: 14px;
+  }
+}
+
+.post-carrossel {
+  position: absolute;
+  inset: 0;
+  --bs-carousel-items-peek: 0px;
+  --bs-carousel-items-gap: 0px;
+}
+
+.post-carrossel .carousel-inner,
+.post-carrossel .carousel-item {
+  height: 100%;
+}
+
+.post-carrossel-foto {
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-carrossel-inteira {
+  object-fit: contain;
+}
+
+.post-carrossel-seta {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  transform: translateY(-50%);
+  opacity: 0.92;
+}
+
+.post-carrossel-seta:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.seta-esquerda {
+  left: 10px;
+}
+
+.seta-direita {
+  right: 10px;
+}
+
+.post-carrossel-bolinhas {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 12px;
+  display: flex;
+  gap: 6px;
+  padding: 5px 8px;
+  background-color: rgba(17, 24, 39, 0.35);
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.post-carrossel-bolinhas button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.post-carrossel-bolinhas button.ativa {
+  background-color: white;
+  transform: scale(1.25);
+}
+
+.post-carrossel-ligado,
+.post-carrossel-ligado:hover {
+  color: white;
+  background-color: var(--texto-principal);
+}
+
+.post-carrossel-etiqueta {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 12px;
+  color: white;
+  font-size: 13px;
+  line-height: 1.2;
+  background-color: rgba(17, 24, 39, 0.62);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.post-carrossel-etiqueta-texto {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.post-carrossel-etiqueta-texto strong {
+  font-weight: 700;
+}
+
+.post-carrossel-etiqueta-conta {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.post-carrossel-etiqueta button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.post-carrossel-etiqueta button:hover {
+  background-color: rgba(255, 255, 255, 0.32);
+}
+
+.etiqueta-curta {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .etiqueta-longa {
+    display: none;
+  }
+
+  .etiqueta-curta {
+    display: inline;
+  }
+}

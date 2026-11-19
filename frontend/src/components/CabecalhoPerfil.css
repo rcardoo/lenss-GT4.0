@@ -1,0 +1,163 @@
+.perfil {
+  padding: 10px 10px 26px;
+}
+
+.perfil-banner {
+  overflow: hidden;
+  height: 240px;
+  border-radius: 20px;
+  background-color: var(--fundo-suave);
+}
+
+.perfil-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perfil-linha {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 0 28px;
+}
+
+.perfil-avatar {
+  flex-shrink: 0;
+  margin-top: -62px;
+}
+
+.perfil-nomes {
+  min-width: 0;
+  padding-top: 12px;
+}
+
+.perfil-nomes h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.perfil-nomes p {
+  margin: 2px 0 0;
+  color: var(--texto-apoio);
+  font-size: 16px;
+}
+
+.perfil-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  padding-top: 14px;
+}
+
+.perfil-detalhes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 28px 0 170px;
+}
+
+.perfil-bio {
+  max-width: 520px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.perfil-numeros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  color: var(--texto-apoio);
+  font-size: 15px;
+}
+
+.perfil-numeros strong {
+  color: var(--texto-principal);
+  font-size: 17px;
+}
+
+@media (max-width: 900px) {
+  .perfil-linha {
+    flex-wrap: wrap;
+  }
+
+  .perfil-acoes {
+    width: 100%;
+    margin-left: 0;
+    padding-top: 4px;
+  }
+
+  .perfil-acoes > * {
+    flex: 1;
+  }
+
+  .perfil-detalhes {
+    padding-left: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .perfil-banner {
+    height: 150px;
+  }
+
+  .perfil-linha {
+    padding: 0 16px;
+    gap: 14px;
+  }
+
+  .perfil-avatar {
+    margin-top: -48px;
+  }
+
+  .perfil-nomes {
+    padding-top: 8px;
+  }
+
+  .perfil-nomes h1 {
+    font-size: 24px;
+  }
+
+  .perfil-detalhes {
+    padding: 10px 16px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil {
+    padding: 8px 8px 20px;
+  }
+
+  .perfil-banner {
+    height: 120px;
+    border-radius: 16px;
+  }
+
+  .perfil-nomes h1 {
+    font-size: 21px;
+  }
+}
+
+.perfil-seguir {
+  justify-content: center;
+  min-width: 200px;
+  margin-top: 6px;
+}
+
+.perfil-seguindo {
+  border: 1px solid var(--linha);
+}
+
+@media (max-width: 768px) {
+  .perfil-seguir {
+    width: 100%;
+  }
+}

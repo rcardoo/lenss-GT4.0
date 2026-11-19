@@ -1,0 +1,154 @@
+.publicacoes-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.publicacoes-topo h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.grade-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--raio-foto);
+  background-color: var(--fundo-suave);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.grade-item:hover,
+.grade-item:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-forte);
+}
+
+.grade-abrir {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: zoom-in;
+}
+
+.grade-abrir img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grade-inteira .grade-abrir img {
+  object-fit: contain;
+}
+
+.grade-legenda {
+  position: absolute;
+  inset: auto 0 0 0;
+  margin: 0;
+  padding: 48px 18px 16px;
+  color: white;
+  font-size: 15px;
+  line-height: 1.4;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.grade-opcoes {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.grade-opcoes .opcoes-botao {
+  width: 40px;
+  height: 40px;
+  color: var(--texto-principal);
+  background-color: var(--fundo-cartao);
+  box-shadow: var(--sombra-leve);
+}
+
+.grade-item:hover .grade-legenda,
+.grade-item:hover .grade-opcoes,
+.grade-item:focus-within .grade-legenda,
+.grade-item:focus-within .grade-opcoes,
+.grade-opcoes.opcoes-aberto {
+  opacity: 1;
+}
+
+.grade-nova {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--texto-apoio);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #f7f8f9;
+  border: 2px dashed #d4d6dc;
+}
+
+.grade-nova:hover {
+  color: var(--texto-principal);
+  border-color: #b9bcc4;
+}
+
+.grade-nova .redondo {
+  width: 52px;
+  height: 52px;
+}
+
+@media (hover: none) {
+  .grade-opcoes {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .grade {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .grade {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .grade-legenda {
+    font-size: 13px;
+    padding: 36px 12px 12px;
+  }
+}
+
+.publicacoes-limite {
+  font-size: 14px;
+  color: var(--texto-apoio);
+}
+
+.publicacoes-vazio {
+  color: var(--texto-apoio);
+}

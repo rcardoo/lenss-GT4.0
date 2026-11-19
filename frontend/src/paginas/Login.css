@@ -1,0 +1,168 @@
+.login {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100dvh;
+  padding: 28px 56px;
+}
+
+.login-logo-topo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 140px;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.login-cartao {
+  display: contents;
+}
+
+.login-imagem {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.login-imagem img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-imagem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.25));
+}
+
+.login-corpo {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  justify-self: end;
+  width: min(440px, 100%);
+  padding: 36px 36px 28px;
+  background-color: var(--fundo-cartao);
+  border-radius: var(--raio-caixa);
+  box-shadow: var(--sombra-forte);
+}
+
+.login-corpo .login-logo {
+  display: none;
+}
+
+.login-logo {
+  display: block;
+  width: 124px;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-form .rotulo {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.login-form .campo {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-size: 15px;
+}
+
+.login-form .campo-com-icone .login-senha {
+  padding-left: 14px;
+  padding-right: 46px;
+}
+
+.login-olho {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--texto-apoio);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-olho:hover {
+  color: var(--texto-principal);
+  background-color: var(--fundo-suave);
+}
+
+.login-entrar {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 6px;
+}
+
+.login-expirou {
+  margin-bottom: 18px;
+  color: var(--texto-principal);
+  background-color: var(--fundo-suave);
+}
+
+.login-trocar {
+  margin: 20px 0 0;
+  color: var(--texto-apoio);
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-trocar a {
+  color: var(--texto-principal);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-trocar a:hover {
+  text-decoration: underline;
+}
+
+.cadastro-dica {
+  margin: 6px 0 0;
+  color: var(--texto-apoio);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .login {
+    padding: 24px 32px;
+  }
+
+  .login-corpo {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px;
+  }
+
+  .login-logo-topo {
+    align-self: center;
+    width: 132px;
+    margin-top: 18px;
+  }
+
+  .login-corpo {
+    width: 100%;
+    padding: 28px 22px 22px;
+  }
+}

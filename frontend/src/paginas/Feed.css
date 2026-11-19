@@ -1,0 +1,145 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.conteudo:has(> .feed) {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.feed-carregando {
+  margin: 0;
+  color: var(--texto-apoio);
+  text-align: center;
+}
+
+.feed-fim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: min(470px, 100%);
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.feed-fim p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.feed-novas {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.feed-novas .botao {
+  white-space: nowrap;
+  border-radius: 999px;
+}
+
+.feed-reels .feed-fim {
+  width: 100%;
+  height: 100%;
+}
+
+.feed-reels .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.feed-reels .post {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.feed-reels .post-autor,
+.feed-reels .post-legenda {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.feed-reels .post-legenda {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (min-width: 641px) {
+  .feed-reels {
+    --altura-feed: calc(100dvh - 32px);
+    --resto: 112px;
+    --lado: 72px;
+    height: var(--altura-feed);
+    min-height: 420px;
+    width: min(100%, calc((max(var(--altura-feed), 420px) - var(--resto)) * 0.8 + 2 * var(--lado)));
+    margin: 0;
+  }
+
+  .feed-reels .swiper-slide {
+    padding: 0 var(--lado);
+  }
+
+  .feed-reels .post {
+    position: relative;
+    gap: 12px;
+  }
+
+  .feed-reels .post-acoes {
+    position: absolute;
+    left: calc(100% + 16px);
+    bottom: 0;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .feed-reels .post-curtidas {
+    margin: -6px 0 0;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .feed-reels {
+    --altura-feed: calc(100dvh - 100px);
+  }
+}
+
+@media (max-width: 640px) {
+  .conteudo:has(> .feed) {
+    padding-top: 18px;
+    padding-bottom: 16px;
+  }
+
+  .feed-reels {
+    --altura-feed: calc(100dvh - 98px);
+    height: var(--altura-feed);
+    min-height: 360px;
+    width: min(100%, calc((max(var(--altura-feed), 360px) - 180px) * 0.8 + 8px));
+    margin: 0;
+  }
+
+  .feed-reels .swiper-slide {
+    padding: 0 4px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .feed-reels {
+    --altura-feed: calc(100dvh - 102px);
+  }
+}
